@@ -12,8 +12,8 @@ import {withIdentifier} from 'codelyzer/util/astQuery';
 })
 export class UserService {
 
-   private server = 'http://localhost:3000/';
-  // private server = 'https://calm-fjord-55334.herokuapp.com/';
+   // private server = 'http://localhost:3000/';
+  private server = 'https://calm-fjord-55334.herokuapp.com/';
   private username = '';
 
   constructor(private http: HttpClient, private router: Router) {
