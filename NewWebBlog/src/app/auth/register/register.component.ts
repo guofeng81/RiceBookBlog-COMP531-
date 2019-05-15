@@ -9,6 +9,9 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+  public isLoading = false;
+
   constructor(private http: HttpClient, private userService: UserService) {
   }
 
