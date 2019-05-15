@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 offset-md-6" id="showcase">
+      </div>
+      <div class="col-md-6 offset-md-6" style="padding-top: 100px">
+        <mat-card>
+          <mat-spinner *ngIf ="isLoading"></mat-spinner>
+          <h2>Log In </h2>
+          <form *ngIf="!isLoading" (ngSubmit)= onSubmit(f) #f="ngForm">
+            <mat-form-field>
+              <input matInput name="username" ngModel type="text" placeholder="Username" #usernameInput="ngModel" required>
+              <mat-error *ngIf="usernameInput.invalid">Please enter the username</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput name = "password" ngModel type="password" placeholder="Password" #passwordInput = "ngModel" required>
+              <mat-error *ngIf="passwordInput.invalid">Please enter the valid password</mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit">Login</button>
+            &nbsp;
+            <button mat-raised-button color="primary" (click)="socialSignIn()" type="submit">Facebook Login</button>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+

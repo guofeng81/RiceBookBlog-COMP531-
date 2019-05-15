@@ -1,0 +1,46 @@
+<div class="col-md-3">
+    <div style="padding-top: 5px" class="container">
+      <img [src]=userAvatar class="profile_image" width="230px" height="130px">
+    </div>
+
+    <div class="container">
+      <h4>Welcome: {{username}}</h4>
+      <h5 id="displayHeadline">Status: {{userHeadline}}</h5>
+
+        <input id="headlineInput" #newHeadline type="text"/>
+        &nbsp;&nbsp;
+        <button id="updateHeadlineBtn" class="btn-primary"
+                (click)="updateHeadline(newHeadline.value); newHeadline.value=''">Update
+        </button>
+    </div>
+
+    <div class="container">
+      <div class="card">
+      <h3 style="padding-top: 5px">Followers:</h3>
+      <div *ngFor="let follower of followers; index as i" style="padding-bottom: 10px">
+        <div style="padding-top: 10px">
+          <img src ={{follower.image}} class = "profile_image" width="200px" height="100px">
+        </div>
+        <div style="padding-bottom: 10px">
+          <h4>{{follower.name}}</h4>
+          <p>Status: {{follower.status}}<p>
+        </div>
+        <button class="btn btn-primary" (click)="removeFollower(follower.name, i)">Unfollow</button>
+      </div>
+    </div>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <input type="text" #myInput id="addInput"/> &nbsp;
+        <input type="button" value="Add Follower" class="btn btn-primary" (click)="addUserFollower(myInput.value); myInput.value = '';"/>
+      </div>
+    </div>
+</div>
+
+<div class="col-md-9">
+      <app-posts [childFilterArticles]="filterArticles"></app-posts>
+</div>
+
+
+

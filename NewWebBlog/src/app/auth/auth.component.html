@@ -1,0 +1,24 @@
+<mat-toolbar style="margin-bottom: 10px">
+  <mat-toolbar-row>
+    <span>RiceBook Blog</span>
+    <span class="fill-space"></span>
+    <ul>
+      <li>
+        <a mat-button routerLink="register" routerLinkActive="mat-primary" *ngIf="!isLoggedIn$">Register</a>
+      </li>
+      <li>
+        <a mat-button routerLink="login" routerLinkActive="mat-primary" *ngIf="!isLoggedIn$">Login</a>
+      </li>
+      <li>
+        <a mat-button routerLink="/" routerLinkActive="mat-primary" (click)="onLogout()" *ngIf="isLoggedIn$">Logout</a>
+      </li>
+      <li>
+        <a mat-button routerLink="/profile" routerLinkActive="mat-primary" *ngIf="isLoggedIn$">Profile</a>
+      </li>
+    </ul>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+
+

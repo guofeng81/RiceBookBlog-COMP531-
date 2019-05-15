@@ -1,0 +1,51 @@
+.row {
+  border-radius: 5px;
+  border: solid;
+  border-color: grey
+}
+input[type = file] {
+  visibility: hidden;
+}
+.button-padding{
+  margin: 10px 10px 10px 10px;
+}
+
+.pointerCursor{
+  cursor: pointer;
+}
+
+.comment{
+  margin: 10px 10px 10px 10px
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 1000px;
+  text-align: left;
+}
+
+p{
+  font-family: "Times New Roman", Times, serif;
+  font-style: oblique;
+  font-size: large;
+}
+
+h1{
+  font-family: Impact, Charcoal, sans-serif
+}
+
+textarea{
+  border: 2px solid black;
+  border-radius: 4px;
+
+}
+
+input[type=text]{
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+
+
+
+

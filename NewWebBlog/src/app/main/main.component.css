@@ -1,0 +1,58 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  text-align: center;
+  background: lightgray;
+}
+
+.example-fill-remaining-space {
+
+  flex: 1 1 auto;
+}
+
+a:link, a:visited {
+  background-color: lightskyblue;
+  font-size: 15px;
+  color: white;
+  padding: 8px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: blue;
+}
+
+p{
+  font-family: "Times New Roman", Times, serif;
+  font-style: oblique;
+  font-size: large;
+}
+
+h4,h5{
+   font-family: "Times New Roman", Times, serif;
+   font-size: larger;
+   font-style: oblique;
+ }
+
+input[type=text]{
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: large;
+}
+
+
+
+

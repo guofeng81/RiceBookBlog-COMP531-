@@ -1,0 +1,13 @@
+mat-form-field{
+  width:100%
+}
+mat-spinner{
+  margin:auto
+}
+
+#showcase {
+  background-image: url("~src/assets/filbert-mangundap-1326191-unsplash.jpg");
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+}

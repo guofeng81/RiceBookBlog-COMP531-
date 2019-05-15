@@ -1,0 +1,86 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="container-fluid">
+          <div class="image-preview" *ngIf="imagePreview!=='' && imagePreview">
+            <img class= "image-preview" [src] = imagePreview width="350px" height="200px">
+          </div>
+
+          </div>
+        <input type='file' #filePicker (change)="onImagePicked($event)">
+        <button class="btn btn-primary" (click)="filePicker.click()">Pick Image</button>
+
+      </div>
+      <div class="col-md-6"  style="padding-top:20px">
+          <textarea id="articleInput" #articleInput type='text' rows="10" cols="50" required></textarea>
+        <div class="container">
+          <p style="float: left; width: 100px"><button style="width: 65px" id="postArticle" class="btn btn-primary" (click)="addNewArticle(articleInput.value, filePicker); articleInput.value = ''; imagePreview=''; filePicker.value = ''">Post</button></p>
+          <p style="float: left; width: 100px"><button style="width: 75px" class="btn btn-primary" (click)="articleInput.value = ''">Cancel</button></p>
+        </div>
+      </div>
+  </div>
+  &nbsp;
+  </div>
+  <div class="container-fluid">
+    <input style="width: 900px;height: 45px;" id="searchTextBox" type='text' placeholder="search by name or content" #searchValue>
+    <button style="margin-left: 10px ;" class="btn btn-primary" id="search" (click)="search(searchValue.value); searchValue.value = ''">Search</button>
+  </div>
+<br/>
+
+<div class="container-fluid">
+  <h1 style="margin-left: 10px">News Feed</h1>
+
+    <div class="row comment" *ngFor="let article of childFilterArticles; index as i;">
+
+      <div class="col-md-6 col-sm-3 col-lg-6 col-xs-3">
+        <p id="author{{i}}">Author: {{article.author}}</p>
+        <P>Post Date: {{article.date}}</P>
+        <p id="article" width="80%" height="80%">
+          {{article.text}}
+        </p>
+      </div>
+
+      <div class="col-md-6">
+        <img src={{article.avatar}} width="80%" height="80%" title="dog" alt="Image Miss" style="padding: 10px">
+        <div class="container-fluid" style="margin-bottom: 10px">
+
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Comments
+                </mat-panel-title>
+                <mat-panel-description>
+                  See and post comments here.
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div class="container-fluid card" *ngFor="let comment of childFilterArticles[i].comments;">
+                <p  class="comment" width="90%" height="90%">{{comment.author}}: {{comment.comment}} -- {{comment.date}}</p>
+              </div>
+              <div class="comment">
+                <input #commentInput style="width: 450px;height: 40px;" type='text' placeholder="Edit your comment" required>
+                <button style="margin:10px 30px 16px 20px" class="btn btn-primary" (click)="postComment(commentInput.value,i);commentInput.value =''; getArticleId(i)">Post</button>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+          <mat-accordion >
+            <mat-expansion-panel (opened)="getArticleId(i)">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Edit
+                </mat-panel-title>
+                <mat-panel-description>
+                  Edit your article here.
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <textarea #modifiedInput type='text' rows="4" cols="50" required></textarea>
+              <button style="margin:10px 30px 30px 20px" (click)=" isButtonClickable(i); modifyArticle(modifiedInput.value,i); modifiedInput.value =''; " *ngIf="isButtonClickable(i)" class = "btn btn-primary">Save
+              </button>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+

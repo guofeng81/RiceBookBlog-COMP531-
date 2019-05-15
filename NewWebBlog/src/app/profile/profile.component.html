@@ -1,0 +1,136 @@
+<mat-toolbar style="margin-bottom: 40px" color="primary">
+  <span><a routerLink="/main">Main</a></span>
+</mat-toolbar>
+
+<div class="col-md-6">
+  <div class="row">
+    <div class="card">
+      <img class="avatar" [src]=userAvatar>
+      <h1>{{display_name}}</h1>
+      <p class="title">Email: {{userEmail}}</p>
+      <p class="title">Password: **************</p>
+      <p class="title">Date of Birth: {{userDOB}}</p>
+      <p style="padding-bottom: 10px" class="title">Zip: {{userZip}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-6">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <form name="form" (ngSubmit)="f.form.valid && updateProfile(f)" #f="ngForm" novalidate>
+          <div class="form-group">
+            <label for="dName">Display Name</label>
+            <input type="text" class="form-control" name="dName" [(ngModel)]="model.name" #dName="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && dName.invalid }" minlength="4"/>
+            <div *ngIf="f.submitted && dName.invalid" class="invalid-feedback">
+              <div *ngIf="dName.errors.minlength">Display name must be at least 4 characters</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" minlength="6"/>
+            <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+              <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" email/>
+            <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+              <div *ngIf="email.errors.email">Email must be a valid email address</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="form-control" name="dob" [(ngModel)]="model.dob" #dob="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && dob.invalid }"/>
+            <div *ngIf="f.submitted && dob.invalid" class="invalid-feedback">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="zip">Zip Code</label>
+            <input type="text" class="form-control" name="zip" [(ngModel)]="model.zip" #zip="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && zip.invalid }" minlength="5" maxLength="5"/>
+            <div *ngIf="f.submitted && zip.invalid" class="invalid-feedback">
+              <div *ngIf="zip.errors.minlength">Zip Code must be 5 digit</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button class="update-button">Update</button>
+          </div>
+        </form>
+
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Linking Account
+              </mat-panel-title>
+              <mat-panel-description>
+                Click to link your account
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <form name="form" (ngSubmit)="f.form.valid && linkAccount(f1)" #f1="ngForm" novalidate>
+              <div class="form-group">
+                <label for="linkUsername">Username</label>
+                <input id='linkUsername' type="text" class="form-control" name="linkUsername"
+                       [(ngModel)]="model.linkUsername" #linkUsername="ngModel"
+                       [ngClass]="{ 'is-invalid': f1.submitted && linkUsername.invalid }" required/>
+                <div *ngIf="f1.submitted && linkUsername.invalid" class="invalid-feedback">
+                  <div *ngIf="linkUsername.errors.required">Username is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="linkPassword">Password</label>
+                <input id='linkPassword' type="password" class="form-control" name="linkPassword"
+                       [(ngModel)]="model.linkPassword" #linkPassword="ngModel"
+                       [ngClass]="{ 'is-invalid': f1.submitted && linkPassword.invalid }" required/>
+                <div *ngIf="f1.submitted && linkPassword.invalid" class="invalid-feedback">
+                  <div *ngIf="linkPassword.errors.required">Password is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-primary" (click)="linkAccount(f1)">Link</button>&nbsp;&nbsp;
+                <button class="btn btn-primary" (click)="unLinkAccount()">Unlink</button>
+              </div>
+            </form>
+
+          </mat-expansion-panel>
+        </mat-accordion>
+
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Upload Image
+              </mat-panel-title>
+              <mat-panel-description>
+                Click to upload your profile image
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <div class="profile">
+              <img [src]="imagePreview" class="profile_image" width="300px">
+            </div>
+
+            <input type='file' #filePicker width="300px" height="'200px" (change)="onImagePick($event)">
+            <button class="btn btn-primary" (click)="filePicker.click()">Pick Image</button> &nbsp;&nbsp;
+            <button class="btn btn-primary" (click)="uploadImage(filePicker); imagePreview =''">Upload Image</button>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

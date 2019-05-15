@@ -1,0 +1,46 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-6 offset-md-6" id="showcase">
+    </div>
+    <div class="col-md-6 offset-md-6" style="padding-top: 100px">
+      <form name="form" (ngSubmit)="registerUser(f)" #f="ngForm" novalidate>
+        <mat-card>
+          <mat-spinner *ngIf ="isLoading"></mat-spinner>
+          <h2>Register</h2>
+          <form *ngIf="!isLoading" (ngSubmit)= registerUser(f) #f="ngForm">
+            <mat-form-field>
+              <input matInput name="username" ngModel type="text" placeholder="Username" #usernameInput="ngModel" required>
+              <mat-error *ngIf="usernameInput.invalid">Please enter a username</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput name="displayname" ngModel type="text" placeholder="Display Name" #displayNameInput="ngModel" required>
+              <mat-error *ngIf="displayNameInput.invalid">Please enter a display Name</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput name = "password" ngModel type="password" placeholder="Password" #passwordInput = "ngModel" required minlength="6">
+              <mat-error *ngIf="passwordInput.invalid">Please enter a valid password</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput name="email" ngModel type="text" placeholder="Email" #emailInput="ngModel" required email>
+              <mat-error *ngIf="emailInput.invalid">Please enter a valid email address</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput name="dateOfBirth" ngModel type="date" placeholder="Date of Birth" #dobInput="ngModel" required>
+              <mat-error *ngIf="dobInput.invalid">Please enter date of birth</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput name="zip" ngModel type="text" placeholder="Zip Code" #zipInput="ngModel" required minlength="5">
+              <mat-error *ngIf="zipInput.invalid">Please enter a valid zip code</mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Register</button>
+          </form>
+        </mat-card>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+

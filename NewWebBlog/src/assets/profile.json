@@ -1,0 +1,11 @@
+[
+  {
+  "username": "admin",
+  "password": "admin",
+  "headline" : "fun status",
+  "image" : "./assets/beauty.jpg"},
+  { "username" : "admin1",
+  "password": "admin1",
+  "headline" : "love status",
+  "image" : "./assets/beauty.jpg"}
+]
