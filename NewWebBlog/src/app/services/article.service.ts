@@ -8,7 +8,8 @@ import {Comment} from '../models/Comment';
 })
 export class ArticleService {
 
-  private server = 'https://calm-fjord-55334.herokuapp.com/';
+  // private server = 'https://calm-fjord-55334.herokuapp.com/';
+  private server = 'http://localhost:3000/';
 
   constructor(private http: HttpClient) {
   }

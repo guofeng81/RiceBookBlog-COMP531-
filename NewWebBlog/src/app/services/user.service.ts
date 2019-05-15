@@ -12,8 +12,8 @@ import {withIdentifier} from 'codelyzer/util/astQuery';
 })
 export class UserService {
 
-  // private server = 'http://localhost:3000/';
-  private server = 'https://calm-fjord-55334.herokuapp.com/';
+   private server = 'http://localhost:3000/';
+  // private server = 'https://calm-fjord-55334.herokuapp.com/';
   private username = '';
 
   constructor(private http: HttpClient, private router: Router) {
@@ -26,6 +26,13 @@ export class UserService {
   }
 
   onCreateUser(username: string, display_name: string, password: string, email: string, dob: string, zip: string) {
+
+    console.log("in user service", username);
+    console.log("in user service", display_name);
+    console.log("in user service", password);
+    console.log("in user service", email);
+    console.log("in user service", dob);
+    console.log("in user service", zip);
 
     const userProfile: Profile = {
       username: username, displayName: display_name, password: password, email: email, dob: dob, zip: zip

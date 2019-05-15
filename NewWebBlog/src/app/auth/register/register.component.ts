@@ -26,6 +26,9 @@ export class RegisterComponent implements OnInit {
       form.value.dob,
       form.value.zip);
 
+      console.log('usrname', form.value.username);
+      console.log('displayname', form.value.displayName);
+
     form.resetForm();
   }
 }

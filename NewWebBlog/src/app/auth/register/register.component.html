@@ -13,7 +13,7 @@
               <mat-error *ngIf="usernameInput.invalid">Please enter a username</mat-error>
             </mat-form-field>
             <mat-form-field>
-              <input matInput name="displayname" ngModel type="text" placeholder="Display Name" #displayNameInput="ngModel" required>
+              <input matInput name="displayName" ngModel type="text" placeholder="Display Name" #displayNameInput="ngModel" required>
               <mat-error *ngIf="displayNameInput.invalid">Please enter a display Name</mat-error>
             </mat-form-field>
             <mat-form-field>
@@ -25,11 +25,11 @@
               <mat-error *ngIf="emailInput.invalid">Please enter a valid email address</mat-error>
             </mat-form-field>
             <mat-form-field>
-              <input matInput name="dateOfBirth" ngModel type="date" placeholder="Date of Birth" #dobInput="ngModel" required>
+              <input matInput name="dob" ngModel type="date" placeholder="Date of Birth" #dobInput="ngModel" required>
               <mat-error *ngIf="dobInput.invalid">Please enter date of birth</mat-error>
             </mat-form-field>
             <mat-form-field>
-              <input matInput name="zip" ngModel type="text" placeholder="Zip Code" #zipInput="ngModel" required minlength="5">
+              <input matInput name="zip" ngModel type="text" placeholder="Zip Code" #zipInput="ngModel" required minlength="5" maxlength="5">
               <mat-error *ngIf="zipInput.invalid">Please enter a valid zip code</mat-error>
             </mat-form-field>
             <button mat-raised-button color="primary" type="submit">Register</button>
